@@ -12,6 +12,7 @@ public class App {
    * Metodo main.
    */
   public static void main(String[] args) {
+    int somaDosPesos = 0;
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     ArrayList<Integer> peso = new ArrayList<Integer>();
     ArrayList<Integer> notas = new ArrayList<Integer>();
@@ -24,9 +25,15 @@ public class App {
       final String atividadeAtual = input.next();
       input.nextLine();
       System.out.println("Digite o peso da atividade " + i + ": ");
-      peso.add(input.nextInt());
+      int pesoAtual = input.nextInt();
+      peso.add(pesoAtual);
+      somaDosPesos += pesoAtual;
       System.out.println("Digite a nota obtida para " + atividadeAtual + ": ");
       notas.add(input.nextInt());
+    }
+
+    if (somaDosPesos != 100) {
+      System.out.println("A soma dos pesos é diferente de 100!");
     }
 
     input.close();
