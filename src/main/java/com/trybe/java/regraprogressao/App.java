@@ -13,6 +13,7 @@ public class App {
    */
   public static void main(String[] args) {
     int somaDosPesos = 0;
+    int notaBruta = 0;
     Scanner input = new Scanner(System.in).useDelimiter("\n");
     ArrayList<Integer> peso = new ArrayList<Integer>();
     ArrayList<Integer> notas = new ArrayList<Integer>();
@@ -34,6 +35,20 @@ public class App {
 
     if (somaDosPesos != 100) {
       System.out.println("A soma dos pesos é diferente de 100!");
+    } else {
+      for (int i = 0; i < notas.size(); i++) {
+        notaBruta += (notas.get(i) * peso.get(i));
+      }
+      double notaFinal = notaBruta / somaDosPesos;
+      if (notaFinal >= 85.0) {
+        System.out.println("Parabéns! Você alcançou " + notaFinal
+            + "%! E temos o prazer de informar que você obteve aprovação!");
+      } else {
+        System.out
+            .println("Lamentamos informar que, com base na sua pontuação alcançada neste período, "
+                + notaFinal
+                + "%, você não atingiu a pontuação mínima necessária para sua aprovação.");
+      }
     }
 
     input.close();
